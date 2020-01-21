@@ -3,7 +3,6 @@ import { Router, Route, Switch } from "react-router-dom";
 import History from "./history";
 
 import Container from "@/main/Container";
-import Header from "@/Header";
 import Login from "@/login/Index";
 import main from "@/main/Index";
 
