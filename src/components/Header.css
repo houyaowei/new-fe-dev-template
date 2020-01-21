@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  background-color: #9a8888;
+}
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+}
+.header-link-active {
+  background-color: #dc80cd;
+  height: 50px;
+  line-height: 50px;
+}
