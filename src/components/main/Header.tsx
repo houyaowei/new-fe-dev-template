@@ -7,13 +7,13 @@ class Home extends React.Component<any, any> {
     return (
       <div className="header">
         <div className="menu">
-          <NavLink to="/login" activeClassName="header-link-active">
-            login
+          <NavLink to="/main" activeClassName="header-link-active">
+            主页
           </NavLink>
         </div>
         <div className="menu">
-          <NavLink to="/main" activeClassName="header-link-active">
-            main
+          <NavLink to="/analysis" activeClassName="header-link-active">
+            统计
           </NavLink>
         </div>
       </div>
