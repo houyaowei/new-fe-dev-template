@@ -1,13 +1,20 @@
 import { LOGIN, QUERY, LOGIN_SAGA } from "@services/types/constant";
 
-interface IUserLoginAction {
+export interface IUserLoginAction {
+  name: string;
+  password: string;
   type: LOGIN;
 }
-interface IUserQueryAction {
+export interface IUserQueryAction {
   type: QUERY;
 }
 export type UserAction = IUserLoginAction | IUserQueryAction;
 
-export const userLogin = (): IUserLoginAction => ({
+export const userLogin = (
+  name: string,
+  password: string
+): IUserLoginAction => ({
+  name,
+  password,
   type: LOGIN
 });

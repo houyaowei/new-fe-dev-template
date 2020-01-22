@@ -9,6 +9,11 @@ const initState = Map({
   loginData: []
 });
 
+export interface State {
+  loginStatus: UserState;
+}
+export type UserState = typeof initState;
+
 const login = (state = initState, action: any) => {
   switch (action.types) {
     case types.LOGIN_SAGA:
