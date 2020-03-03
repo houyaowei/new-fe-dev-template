@@ -1,20 +1,10 @@
 import { LOGIN, QUERY, LOGIN_SAGA } from "@services/types/constant";
+import IAction from "../IAction";
 
-export interface IUserLoginAction {
-  name: string;
-  password: string;
-  type: LOGIN;
-}
-export interface IUserQueryAction {
-  type: QUERY;
-}
-export type UserAction = IUserLoginAction | IUserQueryAction;
-
-export const userLogin = (
-  name: string,
-  password: string
-): IUserLoginAction => ({
-  name,
-  password,
-  type: LOGIN
-});
+export const userLogin = (payload: any): IAction<any> => {
+  console.log("user login action,name is:", payload.name);
+  return {
+    type: LOGIN,
+    payload
+  };
+};

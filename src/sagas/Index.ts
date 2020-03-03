@@ -1,12 +1,8 @@
 import { all, takeEvery, fork } from "redux-saga/effects";
-
-import { loginFlow } from "./Login.saga";
+import * as actionTypes from "@services/types/constant";
+import loginFlow from "./Login.saga";
 
 export default function* rootSaga() {
-  // yield all([
-  //   takeEvery(types.LOGIN_SAGA, () => {
-  //     console.log("login saga");
-  //   })
-  // ]);
-  yield all([loginFlow]);
+  console.log("sagas-> Index");
+  yield all([takeEvery(actionTypes.LOGIN, loginFlow)]);
 }

@@ -4,10 +4,11 @@ import { Dispatch } from "redux";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { State } from "../../reducers/login";
-import { IUserLoginAction, userLogin } from "@services/actions/login/Index";
+import { userLogin } from "@services/actions/login/Index";
 
 interface IPops {
-  userLogin: (name: string, password: string) => IUserLoginAction;
+  // userLogin: (name: string, password: string) => IUserLoginAction;
+  userLogin: (payload: any) => void;
 }
 interface IState {
   name: string;
@@ -25,12 +26,18 @@ class Login extends React.Component<IPops, IState> {
   onUsernameChange = (e: any) => {
     this.setState({ name: e.target.value });
   };
-
+  static getDerivedStateFromProps(props: any, state: any) {
+    console.log(state.loginStatus);
+  }
   onPasswordChange = (e: any) => {
     this.setState({ password: e.target.value });
   };
   login = () => {
-    this.props.userLogin(this.state.name, this.state.password);
+    console.log("component -> login");
+    this.props.userLogin({
+      name: this.state.name,
+      password: this.state.password
+    });
   };
   render() {
     return (
@@ -64,8 +71,7 @@ const mapStateToProps = (state: State) => ({
   loginStatus: state.loginStatus
 });
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  userLogin: (name: string, password: string) =>
-    dispatch(userLogin(name, password))
+  userLogin: (payload: any) => dispatch(userLogin(payload))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

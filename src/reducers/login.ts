@@ -1,6 +1,5 @@
 import { Map } from "immutable";
-
-import { UserAction } from "@services/actions/login/Index";
+import IAction from "../services/actions/IAction";
 import * as types from "@services/types/constant";
 
 const initState = Map({
@@ -14,11 +13,11 @@ export interface State {
 }
 export type UserState = typeof initState;
 
-const login = (state = initState, action: any) => {
-  switch (action.types) {
+const login = (state = initState, action: IAction<any>) => {
+  switch (action.type) {
     case types.LOGIN_SAGA:
-      state.set("loginStatus", 1);
-
+      console.log("reducer->login");
+      return state.set("loginStatus", 1);
     default:
       return state;
   }
