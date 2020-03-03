@@ -26,9 +26,7 @@ class Login extends React.Component<IPops, IState> {
   onUsernameChange = (e: any) => {
     this.setState({ name: e.target.value });
   };
-  static getDerivedStateFromProps(props: any, state: any) {
-    console.log(state.loginStatus);
-  }
+
   onPasswordChange = (e: any) => {
     this.setState({ password: e.target.value });
   };
